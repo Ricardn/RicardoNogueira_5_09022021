@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./frontend/css/style.css" />
+    
+    <link rel="stylesheet" href="./frontend/css/boostrap.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet"/>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet"/>
+
+    <script
+      src="https://kit.fontawesome.com/406da18a0b.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+
+
+    <title>Orinoco</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="./frontend/images/logo.png" alt="" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse " id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item active text-center">
+                <a class="nav-link"  href="#"> <i class="fas fa-home"></i>Home</a>
+              </li>
+              <li class="nav-item text-center">
+                <a class="nav-link"  href="#"><i class="fas fa-shopping-bag"></i>Produits</a>
+              </li>
+              <li class="nav-item text-center">
+                <a class="nav-link"  href="#"><i class="fas fa-user"></i>Compte</a>
+              </li>
+              <li class="nav-item text-center cart">
+                <a class="nav-link" href="./cart.html"><i class="fas fa-shopping-cart"></i>Pannier<span class="shop-item">0</span></a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Rechercher"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Rechercher
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container-animation mx-auto">
+      <h1>Orinoco</h1>
+      <h2 class="text-center">le bonheur à portée de main !</h2>
+      <p>Spécialiste du doudou depuis 1965</p>
+
+      <svg
+        class="pulse"
+        viewBox="0 0 1024 1024"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <circle id="Oval" cx="512" cy="512" r="512"></circle>
+        <circle id="Oval" cx="512" cy="512" r="512"></circle>
+        <circle id="Oval" cx="512" cy="512" r="512"></circle>
+      </svg>
+    </div>
+
+    <div class="card-header text-center mx-auto">
+      <img
+        src="./frontend/images/fete-des-meres.png"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body mx-auto">
+        <h5 class="card-title">Un porte-clé offert !</h5>
+        <p class="card-text">
+          À l'occasion de la fête des mères,
+          <strong>pour toute commande de 29.90€</strong>
+          <strong>minimum </strong>(hors frais de port), sur notre site, un
+          porte-clé ourson blanc vous sera offert jusqu'à Lundi seulement !💓
+        </p>
+        <a href="#" class="btn btn-primary">En profiter</a>
+      </div>
+    </div>
+
+    <div class="separator mx-auto"><h1>Nos Coups de Coeur</h1></div>
+
+    <div class="container- mx-auto">
+      <div class="row" id="product-container">
+
+          <!--
+                <div class="col-sm col-example text-center white shadow padding-card" >
+
+
+
+          <a href="">
+            <figure class="card-product-grid mb-0 card-sm">
+              <div class="img-wrap">
+                <img src="./images/teddy_11.jpg" style="width: 400px" />
+                <span class="topbar">
+                  <a href="#" class="float-end heart-fav"
+                    ><i class="fa fa-heart"></i
+                  ></a>
+                </span>
+              </div>
+              <figcaption class="info-wrap text-center">
+                <a href="#" class="title" id="product-name"
+                  ></a
+                >
+                <div class="bottom-wrap">
+                 
+                  <ul class="rating-stars">
+                    <li  class="stars-active"> 
+                      <i class="fa fa-star stars-yellow"></i><i class="fa fa-star stars-yellow"></i><i class="fa fa-star stars-yellow"></i><i class="fa fa-star stars-yellow"></i><i class="fa fa-star"></i>
+                    </li>
+                  </ul>	
+                  <div class="price-wrap">
+                    <span class="price">19.00€</span>
+                  </div>
+                  <a href="" class="btn btn-primary float-right">Ajouter au Pannier</a>
+                </div>
+              </figcaption>
+            </figure>
+          </a>
+        </div>
+      -->
+      
+      </div>
+    </div>
+
+    <div class="container- mx-auto text-center">
+      <ul class="row-assurance row-cols-md-4">
+        <li class="assurance">
+          <div class="visuel">
+            <i class="fas fa-unlock-alt"></i>
+          </div>
+          <div class="text">Paiement Sécurisé</div>
+        </li>
+        <li class="assurance">
+          <div class="visuel">
+            <i class="fas fa-history"></i>
+          </div>
+          <div class="text">Expédition 48 / 72h</div>
+        </li>
+        <li class="assurance">
+          <div class="visuel">
+            <i class="fas fa-box-open"></i>
+          </div>
+          <div class="text">Satisfait ou Remboursé</div>
+        </li>
+        <li class="assurance">
+          <div class="visuel">
+            <i class="fas fa-phone-volume"></i>
+          </div>
+          <div class="text">Service Client Dédié</div>
+        </li>
+      </ul>
+    </div>
+
+    <footer>
+      <div class="container-footer">
+        <div class="card-footer">
+          <div class="row-footer">
+            <div class="col-md-3 col-sm-3 col-xs-3">
+              <div class="footer-text pull-left">
+                <div class="d-flex">
+                  <a class="navbar-brand" href="#">
+                    <img src="./frontend/images/logo.png" alt="" />
+                  </a>
+                </div>
+                <p class="card-text">
+                  Créateur de douceur depuis 20 ans, Orinoco est Le spécialiste
+                  du doudou ! Le doudou, un repère rassurant qui favorise le
+                  bien-être et le développement de bébé. Très important pour
+                  lui, il deviendra son complice pour la vie !
+                </p>
+                <div class="social mt-2 mb-3">
+                  <i class="fa fa-facebook-official fa-lg pink-hover"></i>
+                  <i class="fa fa-instagram fa-lg pink-hover"></i>
+                  <i class="fa fa-twitter fa-lg pink-hover"></i>
+                  <i class="fa fa-linkedin-square fa-lg pink-hover"></i>
+                  <i class="fa fa-facebook pink-hover"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1 col-sm-1 col-xs-1"></div>
+            <div class="col-md-2 col-sm-2 col-xs-2">
+              <h5 class="heading">A Propos</h5>
+              <ul>
+                <li class="weight-hover">La marque Orinoco</li>
+                <li class="weight-hover">Nos Services</li>
+                <li class="weight-hover">Programme de Fidélité</li>
+                <li class="weight-hover">Contactez-nous</li>
+              </ul>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-2">
+              <h5 class="heading">Infos Légales</h5>
+              <ul class="card-text">
+                <li class="weight-hover">Mentions Légales</li>
+                <li class="weight-hover">Modes de Livraison</li>
+                <li class="weight-hover">CGV</li>
+                <li class="weight-hover">CGU</li>
+              </ul>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-2">
+              <h5 class="heading">Guides d'Achat</h5>
+              <ul class="card-text">
+                <li class="weight-hover">Comment choisir un doudou</li>
+                <li class="weight-hover">Doudou Naissance</li>
+                <li class="weight-hover">Doudou Sensoriel</li>
+                <li class="weight-hover">E-Catalogue</li>
+              </ul>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-2">
+              <h5 class="heading">Newsletter</h5>
+              <ul class="card-text text-center">
+                <li>
+                  <form>
+                    <div class="input-group">
+                      <input
+                        type="email"
+                        class="form-control"
+                        placeholder="Votre email"
+                      />
+                      <span class="input-group-btn newsletter-btn">
+                        <button class="btn" type="submit">Ok</button>
+                      </span>
+                    </div>
+                  </form>
+                </li>
+                <li>
+                  <i class="fab fa-cc-visa pink-hover font-bigger"></i
+                  ><i class="fab fa-cc-mastercard pink-hover font-bigger"></i
+                  ><i class="fab fa-cc-amex pink-hover font-bigger"></i>
+                </li>
+                <li>
+                  <i class="fab fa-cc-apple-pay pink-hover font-bigger"></i
+                  ><i class="fab fa-cc-paypal pink-hover font-bigger"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="separator-footer mx-auto">
+            <p>
+              <i class="fa fa-copyright"></i> 2021 Fait avec
+              <i class="fas fa-heart pink-hover"></i> par
+              <span class="orinoco pink-hover">Orinoco</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
