@@ -123,11 +123,11 @@ document.getElementById(`submit-form`).onclick = (event) => {
 };
 
 // Fonction principale commande finale, déclenchée au clic du submit
-formClient.addEventListener('submit', function(event) {
+formClient.addEventListener('submit', async function(event) {
     event.preventDefault();
     //Créer le tableau final des produits
     const panierFinalOrder = []
-    createFinalOrder(panierFinalOrder);
+    await createFinalOrder(panierFinalOrder);
     //Créer l'objet contact
     const nom = document.getElementById('inputNom').value;
     const prenom = document.getElementById('inputPrenom').value;
@@ -145,7 +145,8 @@ formClient.addEventListener('submit', function(event) {
             email: emailAddress},
         products: panierFinalOrder
     };
-    sendOrder(order);
+    await sendOrder(order);
+    window.location.href = '/validation.html'
 });
 // Fonction creation du tableau d'ID pour envoi au serveur
 function createFinalOrder(panierFinalOrder) {
