@@ -5,16 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="icon" href="./frontend/images/favicon.jpg">
     <link rel="stylesheet" href="./frontend/css/style.css" />
-    
+
     <link rel="stylesheet" href="./frontend/css/boostrap.min.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet"/>
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
 
     <script
       src="https://kit.fontawesome.com/406da18a0b.js"
@@ -28,14 +37,13 @@
       crossorigin="anonymous"
     ></script>
 
-
-    <title>Orinoco</title>
+    <title>Accueil - Orinoco</title>
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light nav-pink">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="./index.html">
             <img src="./frontend/images/logo.png" alt="" />
           </a>
           <button
@@ -49,32 +57,44 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse " id="navbarCollapse">
+          <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item active text-center">
-                <a class="nav-link"  href="#"> <i class="fas fa-home"></i>Home</a>
+                <a class="nav-link-color" href="./index.html">
+                  <i class="fas fa-home"></i>Home</a
+                >
               </li>
               <li class="nav-item text-center">
-                <a class="nav-link"  href="#"><i class="fas fa-shopping-bag"></i>Produits</a>
+                <a class="nav-link-color" href="#Products"
+                  ><i class="fas fa-shopping-bag"></i>Produits</a
+                >
               </li>
               <li class="nav-item text-center">
-                <a class="nav-link"  href="#"><i class="fas fa-user"></i>Compte</a>
+                <a class="nav-link-color" href="#"
+                  ><i class="fas fa-user"></i>Compte</a
+                >
               </li>
               <li class="nav-item text-center cart">
-                <a class="nav-link" href="./cart.html"><i class="fas fa-shopping-cart"></i>Pannier<span class="shop-item">0</span></a>
+                <a class="nav-link-color" href="./pannier.html"
+                  ><i class="fas fa-shopping-cart"></i>Pannier
+                </a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Rechercher"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Rechercher
-              </button>
-            </form>
+            <div class="searchBar">
+              <form class="d-flex">
+                <input
+                 type="text"
+                      name="searchBar"
+                      id="searchBar"
+                      placeholder="Rechercher"
+                      onclick="showDiv()"
+                />
+                <button class="btn-shade">
+                  Rechercher
+                </button>
+              </form>
+              <ul id="teddiesList"></ul>
+            </div>
           </div>
         </div>
       </nav>
@@ -112,54 +132,140 @@
           <strong>minimum </strong>(hors frais de port), sur notre site, un
           porte-clé ourson blanc vous sera offert jusqu'à Lundi seulement !💓
         </p>
-        <a href="#" class="btn btn-primary">En profiter</a>
+        <a href="#Products" class="btn-shade">En Profiter</a>
       </div>
     </div>
 
+
+    <section id="Products">
+      
     <div class="separator mx-auto"><h1>Nos Coups de Coeur</h1></div>
 
-    <div class="container- mx-auto">
-      <div class="row" id="product-container">
-
-          <!--
-                <div class="col-sm col-example text-center white shadow padding-card" >
-
-
-
-          <a href="">
-            <figure class="card-product-grid mb-0 card-sm">
-              <div class="img-wrap">
-                <img src="./images/teddy_11.jpg" style="width: 400px" />
-                <span class="topbar">
-                  <a href="#" class="float-end heart-fav"
-                    ><i class="fa fa-heart"></i
-                  ></a>
-                </span>
-              </div>
-              <figcaption class="info-wrap text-center">
-                <a href="#" class="title" id="product-name"
-                  ></a
-                >
-                <div class="bottom-wrap">
-                 
-                  <ul class="rating-stars">
-                    <li  class="stars-active"> 
-                      <i class="fa fa-star stars-yellow"></i><i class="fa fa-star stars-yellow"></i><i class="fa fa-star stars-yellow"></i><i class="fa fa-star stars-yellow"></i><i class="fa fa-star"></i>
-                    </li>
-                  </ul>	
-                  <div class="price-wrap">
-                    <span class="price">19.00€</span>
-                  </div>
-                  <a href="" class="btn btn-primary float-right">Ajouter au Pannier</a>
+      <div class="container- mx-auto">
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4 mt-4">
+            <div class="col-sm col-example text-center white shadow padding-card">
+              <figure id="card-0" class="card-product-grid mb-0 card-sm">
+                <div class="product-image img-wrap">
+                  <img id="product-0-img" class="img-teddy-card" src="" />
                 </div>
-              </figcaption>
-            </figure>
-          </a>
+                <div class="product-name">
+                  <h2 id="product-0-name" class="card-title">name</h2>
+                </div>
+                <div class="product-description">
+                  <p id="product-0-description" class="card-text">description</p>
+                </div>
+                <div class="product-price">
+                  <p id="product-0-price" class="card-text">prix</p>
+                </div>
+                <div class="product-link">
+                  <a id="product-0-link" class="btn-shade" href=""
+                    >En Savoir Plus</a
+                  >
+                </div>
+              </figure>
+            </div>
+          </div>
+  
+          <div class="col-12 col-md-6 col-lg-4 mt-4">
+            <div class="col-sm col-example text-center white shadow padding-card">
+              <figure id="card-1" class="card-product-grid mb-0 card-sm">
+                <div class="product-image img-wrap">
+                  <img id="product-1-img" class="img-teddy-card" src="" />
+                </div>
+                <div class="product-name">
+                  <h2 id="product-1-name" class="card-title">name</h2>
+                </div>
+                <div class="product-description">
+                  <p id="product-1-description" class="card-text">description</p>
+                </div>
+                <div class="product-price">
+                  <p id="product-1-price" class="card-text">prix</p>
+                </div>
+                <div class="product-link">
+                  <a id="product-1-link" class="btn-shade" href=""
+                    >En Savoir Plus</a
+                  >
+                </div>
+              </figure>
+            </div>
+          </div>
+  
+          <div class="col-12 col-md-6 col-lg-4 mt-4">
+            <div class="col-sm col-example text-center white shadow padding-card">
+              <figure id="card-2" class="card-product-grid mb-0 card-sm">
+                <div class="product-image img-wrap">
+                  <img id="product-2-img" class="img-teddy-card" src="" />
+                </div>
+                <div class="product-name">
+                  <h2 id="product-2-name" class="card-title">name</h2>
+                </div>
+                <div class="product-description">
+                  <p id="product-2-description" class="card-text">description</p>
+                </div>
+                <div class="product-price">
+                  <p id="product-2-price" class="card-text">prix</p>
+                </div>
+                <div class="product-link">
+                  <a id="product-2-link" class="btn-shade" href=""
+                    >En Savoir Plus</a
+                  >
+                </div>
+              </figure>
+            </div>
+          </div>
+  
+          <div class="col-12 col-md-6 col-lg-4 mt-4">
+            <div class="col-sm col-example text-center white shadow padding-card">
+              <figure id="card-3" class="card-product-grid mb-0 card-sm">
+                <div class="product-image img-wrap">
+                  <img id="product-3-img" class="img-teddy-card" src="" />
+                </div>
+                <div class="product-name">
+                  <h2 id="product-3-name" class="card-title">name</h2>
+                </div>
+                <div class="product-description">
+                  <p id="product-3-description" class="card-text">description</p>
+                </div>
+                <div class="product-price">
+                  <p id="product-3-price" class="card-text">prix</p>
+                </div>
+                <div class="product-link">
+                  <a id="product-3-link" class="btn-shade" href=""
+                    >En Savoir Plus</a
+                  >
+                </div>
+              </figure>
+            </div>
+          </div>
+  
+          <div class="col-12 col-md-6 col-lg-4 mt-4">
+            <div class="col-sm col-example text-center white shadow padding-card">
+              <figure id="card-4" class="card-product-grid mb-0 card-sm">
+                <div class="product-image img-wrap">
+                  <img id="product-4-img" class="img-teddy-card" src="" />
+                </div>
+                <div class="product-name">
+                  <h2 id="product-4-name" class="card-title">name</h2>
+                </div>
+                <div class="product-description">
+                  <p id="product-4-description" class="card-text">description</p>
+                </div>
+                <div class="product-price">
+                  <p id="product-4-price" class="card-text">prix</p>
+                </div>
+                <div class="product-link">
+                  <a id="product-4-link" class="btn-shade" href=""
+                    >En Savoir Plus</a
+                  >
+                </div>
+              </figure>
+            </div>
+          </div>
         </div>
-      -->
-      
       </div>
-    </div>
+    </section>
+    
 
     <div class="container- mx-auto text-center">
       <ul class="row-assurance row-cols-md-4">
@@ -284,5 +390,8 @@
         </div>
       </div>
     </footer>
+
+    <script src="./frontend/js/functions.js"></script>
+    <script src="./frontend/js/index.js"></script>
   </body>
 </html>

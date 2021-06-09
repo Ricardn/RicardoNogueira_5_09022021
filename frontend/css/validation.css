@@ -1,0 +1,150 @@
+.container-validation {
+  max-width: 1400px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f7f7f7;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.validation-header i {
+  font-size: 50px;
+  text-align: center;
+}
+
+.validation-header i:hover {
+  color: #957bda;
+}
+
+.card-header-content {
+  text-transform: capitalize;
+}
+
+
+
+
+
+
+
+
+
+.card-header- img {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.card-header- {
+  display: block;
+  margin-top: 250px;
+  background: #f3e9f1;
+  max-width: 1400px;
+  padding: 50px;
+}
+
+.card-header- h1 {
+  margin: 10px;
+  font-weight: 600;
+  font-family: "Finger Paint", cursive;
+}
+
+.card-header- h2 {
+  margin: 10px;
+}
+
+.card-header- h3 {
+  margin: 10px;
+}
+
+.card-body {
+  min-width: 1000px;
+  display: flex;
+}
+
+.tracking-wrap {
+  position: relative;
+  background-color: #ddd;
+  height: 7px;
+  display: flex;
+  margin-bottom: 60px;
+  margin-top: 50px;
+}
+
+.tracking-wrap .step {
+  flex-grow: 1;
+  width: 25%;
+  margin-top: -18px;
+  text-align: center;
+  position: relative;
+}
+
+.tracking-wrap .step::before {
+  height: 7px;
+  position: absolute;
+  content: "";
+  width: 100%;
+  left: 0;
+  top: 18px;
+}
+
+.tracking-wrap .step.active::before {
+  background: #957bda;
+}
+
+.icon {
+  background: #957bda;
+  color: #fff;
+}
+
+.tracking-wrap .icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  border-radius: 100%;
+  background: #ddd;
+}
+
+.tracking-wrap .step.active .icon {
+  background: #957bda;
+  color: #fff;
+}
+
+.tracking-wrap .step.active .text {
+  font-weight: 400;
+  color: #000;
+}
+
+.tracking-wrap .text {
+  display: block;
+  margin-top: 7px;
+}
+
+.icon-black {
+  color: #000;
+}
+
+.aside img {
+  max-width: 150px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pink {
+  background-color: #f3e9f1;
+}
+
+iframe {
+  pointer-events: none;
+}
+
+iframe {
+  max-width: 200px;
+  max-height: 200px;
+}

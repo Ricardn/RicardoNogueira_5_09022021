@@ -1,0 +1,15 @@
+.container-product {
+  max-width: 1400px;
+  margin: 100px;
+  background-color: #f7f7f7;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+label {
+  font-weight: 600;
+}
+
+.product-price {
+  font-weight: 600;
+}
