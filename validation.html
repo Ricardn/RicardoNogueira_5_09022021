@@ -7,11 +7,6 @@
 
     <link rel="stylesheet" href="./frontend/css/style.css" />
     <link rel="stylesheet" href="./frontend/css/boostrap.min.css" />
-    <link rel="stylesheet" href="./frontend/css/validation.css" />
-
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
 
     <script
       src="https://kit.fontawesome.com/406da18a0b.js"
@@ -36,12 +31,12 @@
       rel="stylesheet"
     />
 
-    <title>Orinoco</title>
+    <title>Orinoco - Votre commande a été validé !</title>
   </head>
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light nav-pink">
-        <div class="container-fluid">
+        <div class="container-fluid mx-auto">
           <a class="navbar-brand" href="./index.html">
             <img src="./frontend/images/logo.png" alt="" />
           </a>
@@ -64,7 +59,7 @@
                 >
               </li>
               <li class="nav-item text-center">
-                <a class="nav-link-color" href="./index.html/#Products"
+                <a class="nav-link-color" href="#Products"
                   ><i class="fas fa-shopping-bag"></i>Produits</a
                 >
               </li>
@@ -74,22 +69,21 @@
                 >
               </li>
               <li class="nav-item text-center cart">
-                <a class="nav-link-color" href="./pannier.html"
-                  ><i class="fas fa-shopping-cart"></i>Pannier
+                <a class="nav-link-color" href="./panier.html"
+                  ><i class="fas fa-shopping-cart"></i>Panier
                 </a>
               </li>
             </ul>
             <div class="searchBar">
-              <form class="d-flex">
+              <form class="searchbar-form d-flex">
                 <input
                   type="text"
                   name="searchBar"
                   id="searchBar"
                   placeholder="Rechercher"
+                  onclick="showDiv()"
                 />
-                <button onclick="showDiv()" class="btn-shade" type="text">
-                  Rechercher
-                </button>
+                <button class="btn-shade">Rechercher</button>
               </form>
               <ul id="teddiesList"></ul>
             </div>
@@ -102,14 +96,13 @@
       <div class="validation-header text-center">
         <i class="fa fa-shopping-cart"></i>
         <h1>Orinoco</h1>
-        <div class="card-header-content ">
-            <h2>merci <span id="name"></span>,</h2>
+        <div class="card-header-content">
+          <h2>Merci <span id="name"></span>,</h2>
         </div>
-        
+
         <div class="validation-gif">
           <iframe
             src="https://giphy.com/embed/LmxjQca9TYwvGi4NtZ"
-            frameborder="0"
             class="giphy-embed"
           >
           </iframe>
@@ -117,41 +110,20 @@
         </div>
       </div>
 
-      <div class="card-body- mx-auto">
-        <span id="commande-id"></span><br />
-        <article class="card">
-          <div class="card-body row no-gutters mx-auto">
-            <div class="col">
-              <strong>Transporteur:</strong> <br />
-              UPS, | <i class="fa fa-phone"></i> +123467890
-            </div>
-            <div class="col">
-              <strong>Status:</strong> <br />
-              Pris en charge par le Transporteur
-            </div>
-            <div class="col">
-              <strong>N° de Suivie:</strong> <br />
-              <a href="">98765432123</a> 
-            </div>
-          </div>
-        </article>
-
+      <div class="card-body-status">
         <div class="tracking-wrap">
           <div class="step active">
             <span class="icon"> <i class="fa fa-check"></i> </span>
             <span class="text">Paiement Accepté</span>
           </div>
-          <!-- step.// -->
           <div class="step active">
             <span class="icon"> <i class="fa fa-user"></i> </span>
             <span class="text"> Préparation en Cours</span>
           </div>
-          <!-- step.// -->
           <div class="step">
             <span class="icon icon-black"> <i class="fa fa-truck"></i> </span>
             <span class="text"> En cours de Livraison </span>
           </div>
-          <!-- step.// -->
           <div class="step">
             <span class="icon icon-black"> <i class="fa fa-box"></i> </span>
             <span class="text">Livré</span>
@@ -160,34 +132,29 @@
       </div>
     </div>
 
-    <div class="order-validated">
+    <div class="container-validated">
+      <div class="order-validated">
         <div class="order-validated-header text-center">
-            <h3>Votre commande porte le numéro:  <span id="commande-id"></span> </h3>
-            <div id="order-id" class="text-center id-order">  </div>
+          <h3>
+            Votre commande porte le numéro: <span id="commande-id"></span>
+          </h3>
+          <div id="order-id" class="text-center id-order"></div>
         </div>
         <div class="order-review">
-            <p id="review"></p>
-           </div>
-        </div>
-
-    </div>
-
-    <div class="container-validation mx-auto">
-      <div class="row">
-        <div class="col m-4 text-center">
-          <a class="btn-shade" href="index.html" role="button"
-            >Retour à l'acceuil</a
-          >
+          <p id="review"></p>
         </div>
       </div>
+      <a class="btn-shade" href="index.html" role="button"
+        >Retour à l'acceuil</a
+      >
     </div>
 
     <footer>
       <div class="container-footer">
         <div class="card-footer">
           <div class="row-footer">
-            <div class="col-md-3 col-sm-3 col-xs-3">
-              <div class="footer-text pull-left">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-4">
+              <div class="presentation footer-text pull-left">
                 <div class="d-flex">
                   <a class="navbar-brand" href="#">
                     <img src="./frontend/images/logo.png" alt="" />
@@ -208,8 +175,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-1 col-sm-1 col-xs-1"></div>
-            <div class="col-md-2 col-sm-2 col-xs-2">
+            
+            <div class="about col-lg-2 col-md-4 col-sm-4 col-xs-4">
               <h5 class="heading">A Propos</h5>
               <ul>
                 <li class="weight-hover">La marque Orinoco</li>
@@ -218,7 +185,7 @@
                 <li class="weight-hover">Contactez-nous</li>
               </ul>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-2">
+            <div class="legal col-lg-2 col-md-4 col-sm-4 col-xs-4">
               <h5 class="heading">Infos Légales</h5>
               <ul class="card-text">
                 <li class="weight-hover">Mentions Légales</li>
@@ -227,7 +194,7 @@
                 <li class="weight-hover">CGU</li>
               </ul>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-2">
+            <div class="guide col-lg-2 col-md-4 col-sm-4 col-xs-4">
               <h5 class="heading">Guides d'Achat</h5>
               <ul class="card-text">
                 <li class="weight-hover">Comment choisir un doudou</li>
@@ -236,12 +203,13 @@
                 <li class="weight-hover">E-Catalogue</li>
               </ul>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-2">
+
+            <div class="newsletter col-lg-2 col-md-12 col-sm-12 col-xs-4">
               <h5 class="heading">Newsletter</h5>
-              <ul class="card-text text-center">
+              <ul class="card-text">
                 <li>
                   <form>
-                    <div class="input-group">
+                    <div class="input-group d-flex justify-content-center">
                       <input
                         type="email"
                         class="form-control"
@@ -253,15 +221,17 @@
                     </div>
                   </form>
                 </li>
-                <li>
-                  <i class="fab fa-cc-visa pink-hover font-bigger"></i
-                  ><i class="fab fa-cc-mastercard pink-hover font-bigger"></i
-                  ><i class="fab fa-cc-amex pink-hover font-bigger"></i>
-                </li>
-                <li>
-                  <i class="fab fa-cc-apple-pay pink-hover font-bigger"></i
-                  ><i class="fab fa-cc-paypal pink-hover font-bigger"></i>
-                </li>
+               
+                  <li class="payment-icon">
+                    <i class="fab fa-cc-visa pink-hover font-bigger"></i
+                    ><i class="fab fa-cc-mastercard pink-hover font-bigger"></i
+                    ><i class="fab fa-cc-amex pink-hover font-bigger"></i>
+                  </li>
+                  <li class="payment-icon">
+                    <i class="fab fa-cc-apple-pay pink-hover font-bigger"></i
+                    ><i class="fab fa-cc-paypal pink-hover font-bigger"></i>
+                  </li>
+              
               </ul>
             </div>
           </div>

@@ -7,11 +7,6 @@
 
     <link rel="stylesheet" href="./frontend/css/style.css" />
     <link rel="stylesheet" href="./frontend/css/boostrap.min.css" />
-    <link rel="stylesheet" href="./frontend/css/pannier.css" />
-
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
 
     <script
       src="https://kit.fontawesome.com/406da18a0b.js"
@@ -74,8 +69,8 @@
                 >
               </li>
               <li class="nav-item text-center cart">
-                <a class="nav-link-color" href="./pannier.html"
-                  ><i class="fas fa-shopping-cart"></i>Pannier
+                <a class="nav-link-color" href="./panier.html"
+                  ><i class="fas fa-shopping-cart"></i>Panier
                 </a>
               </li>
             </ul>
@@ -87,7 +82,7 @@
                   id="searchBar"
                   placeholder="Rechercher"
                 />
-                <button onclick="showDiv()" class="btn-shade" type="text">
+                <button onclick="showDiv()" class="btn-shade" type="button">
                   Rechercher
                 </button>
               </form>
@@ -98,11 +93,11 @@
       </nav>
     </header>
 
-    <div class="container-product mx-auto">
-      <div class="row justify-content-center">
+    <div class="container-cart mx-auto">
+      <div class="row justify-content-center mx-auto">
         <div class="cart-header">
           <i class="fa fa-shopping-cart"></i>
-          <h1 class="">Votre Pannier</h1> 
+          <h1 class="">Votre Panier</h1> 
         </div>
          
         <div id="div-panier" class="col-auto">
@@ -128,6 +123,19 @@
               </tr>
             </thead>
             <tbody id="tableau-body"></tbody>
+            <tbody id="gift-body">
+              <tr class="gift-body">
+                <td class="gift-image d-none d-md-block" ><img src="./frontend/images/gift.jpg" class="rounded-lg" alt=""></td>
+                <td class="gift-name">Freddie </td>
+                <td class="gift-color">White</td>
+                <td></td>
+                <td class="gift-quantity">1</td>
+                <td></td>
+                <td class="gift-price">Offert</td>
+              </tr>
+          
+            </tbody>
+
           </table>
           <p id="montant-panier" class="text-center">
             Montant total du panier :
@@ -136,16 +144,19 @@
         </div>
       </div>
       <div class="col text-center mt-4">
-        <a href="#cart-formulaire" onclick="showForm()" class="btn-shade">Valider le Pannier</a>
+        <a href="#cart-formulaire" onclick="showForm()" class="btn-shade">Valider le Panier</a>
       </div>
     </div>
 
 
     <section id="cart-formulaire">
       <div class="container-formulaire mx-auto">
+        <div class="cart-header text-center">
+          <h2 class="">Informations</h2> 
+        </div>
         <form id="formulaire" class="p-4 m-4">
           <div class="form-row">
-            <div class="col-5">
+            <div class="col-5 identity">
               <div class="form-group col-md-6">
                 <label for="inputNom">Nom*</label>
                 <input
@@ -193,7 +204,7 @@
               </div>
             </div>
             <div class="col-5">
-              <div class="form-row">
+              <div class="form-row adress">
                 <div class="form-group col-md-3">
                   <label for="inputNumberAddress">N° de voie*</label>
                   <input
@@ -224,7 +235,7 @@
                   />
                 </div>
               </div>
-              <div class="form-row">
+              <div class="form-row adresscp">
                 <div class="form-group col-md-3">
                   <label for="inputCP">Code Postal*</label>
                   <input
@@ -235,7 +246,7 @@
                     required
                   />
                 </div>
-                <div class="form-group col-md-9">
+                <div class="form-group col-md-9 city">
                   <label for="inputCity">Ville*</label>
                   <input
                     type="text"
@@ -272,8 +283,8 @@
       <div class="container-footer">
         <div class="card-footer">
           <div class="row-footer">
-            <div class="col-md-3 col-sm-3 col-xs-3">
-              <div class="footer-text pull-left">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-4">
+              <div class="presentation footer-text pull-left">
                 <div class="d-flex">
                   <a class="navbar-brand" href="#">
                     <img src="./frontend/images/logo.png" alt="" />
@@ -294,8 +305,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-1 col-sm-1 col-xs-1"></div>
-            <div class="col-md-2 col-sm-2 col-xs-2">
+            
+            <div class="about col-lg-2 col-md-4 col-sm-4 col-xs-4">
               <h5 class="heading">A Propos</h5>
               <ul>
                 <li class="weight-hover">La marque Orinoco</li>
@@ -304,7 +315,7 @@
                 <li class="weight-hover">Contactez-nous</li>
               </ul>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-2">
+            <div class="legal col-lg-2 col-md-4 col-sm-4 col-xs-4">
               <h5 class="heading">Infos Légales</h5>
               <ul class="card-text">
                 <li class="weight-hover">Mentions Légales</li>
@@ -313,7 +324,7 @@
                 <li class="weight-hover">CGU</li>
               </ul>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-2">
+            <div class="guide col-lg-2 col-md-4 col-sm-4 col-xs-4">
               <h5 class="heading">Guides d'Achat</h5>
               <ul class="card-text">
                 <li class="weight-hover">Comment choisir un doudou</li>
@@ -322,12 +333,13 @@
                 <li class="weight-hover">E-Catalogue</li>
               </ul>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-2">
+
+            <div class="newsletter col-lg-2 col-md-12 col-sm-12 col-xs-4">
               <h5 class="heading">Newsletter</h5>
-              <ul class="card-text text-center">
+              <ul class="card-text">
                 <li>
                   <form>
-                    <div class="input-group">
+                    <div class="input-group d-flex justify-content-center">
                       <input
                         type="email"
                         class="form-control"
@@ -339,15 +351,17 @@
                     </div>
                   </form>
                 </li>
-                <li>
-                  <i class="fab fa-cc-visa pink-hover font-bigger"></i
-                  ><i class="fab fa-cc-mastercard pink-hover font-bigger"></i
-                  ><i class="fab fa-cc-amex pink-hover font-bigger"></i>
-                </li>
-                <li>
-                  <i class="fab fa-cc-apple-pay pink-hover font-bigger"></i
-                  ><i class="fab fa-cc-paypal pink-hover font-bigger"></i>
-                </li>
+               
+                  <li class="payment-icon">
+                    <i class="fab fa-cc-visa pink-hover font-bigger"></i
+                    ><i class="fab fa-cc-mastercard pink-hover font-bigger"></i
+                    ><i class="fab fa-cc-amex pink-hover font-bigger"></i>
+                  </li>
+                  <li class="payment-icon">
+                    <i class="fab fa-cc-apple-pay pink-hover font-bigger"></i
+                    ><i class="fab fa-cc-paypal pink-hover font-bigger"></i>
+                  </li>
+              
               </ul>
             </div>
           </div>
@@ -364,6 +378,6 @@
     </footer>
 
     <script src="./frontend/js/functions.js"></script>
-    <script src="./frontend/js/pannier.js"></script>
+    <script src="./frontend/js/panier.js"></script>
   </body>
 </html>

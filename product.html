@@ -6,12 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="./frontend/css/style.css" />
-    <link rel="stylesheet" href="./frontend/css/product.css" />
     <link rel="stylesheet" href="./frontend/css/boostrap.min.css" />
-
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
 
     <script
       src="https://kit.fontawesome.com/406da18a0b.js"
@@ -74,8 +69,8 @@
                 >
               </li>
               <li class="nav-item text-center cart">
-                <a class="nav-link-color" href="./pannier.html"
-                  ><i class="fas fa-shopping-cart"></i>Pannier
+                <a class="nav-link-color" href="./panier.html"
+                  ><i class="fas fa-shopping-cart"></i>Panier
                 </a>
               </li>
             </ul>
@@ -87,7 +82,7 @@
                   id="searchBar"
                   placeholder="Rechercher"
                 />
-                <button onclick="showDiv()" class="btn-shade" type="text">
+                <button onclick="showDiv()" class="btn-shade" type="button">
                   Rechercher
                 </button>
               </form>
@@ -154,8 +149,8 @@
       <div class="container-footer">
         <div class="card-footer">
           <div class="row-footer">
-            <div class="col-md-3 col-sm-3 col-xs-3">
-              <div class="footer-text pull-left">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-4">
+              <div class="presentation footer-text pull-left">
                 <div class="d-flex">
                   <a class="navbar-brand" href="#">
                     <img src="./frontend/images/logo.png" alt="" />
@@ -176,8 +171,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-1 col-sm-1 col-xs-1"></div>
-            <div class="col-md-2 col-sm-2 col-xs-2">
+            
+            <div class="about col-lg-2 col-md-4 col-sm-4 col-xs-4">
               <h5 class="heading">A Propos</h5>
               <ul>
                 <li class="weight-hover">La marque Orinoco</li>
@@ -186,7 +181,7 @@
                 <li class="weight-hover">Contactez-nous</li>
               </ul>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-2">
+            <div class="legal col-lg-2 col-md-4 col-sm-4 col-xs-4">
               <h5 class="heading">Infos Légales</h5>
               <ul class="card-text">
                 <li class="weight-hover">Mentions Légales</li>
@@ -195,7 +190,7 @@
                 <li class="weight-hover">CGU</li>
               </ul>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-2">
+            <div class="guide col-lg-2 col-md-4 col-sm-4 col-xs-4">
               <h5 class="heading">Guides d'Achat</h5>
               <ul class="card-text">
                 <li class="weight-hover">Comment choisir un doudou</li>
@@ -204,12 +199,13 @@
                 <li class="weight-hover">E-Catalogue</li>
               </ul>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-2">
+
+            <div class="newsletter col-lg-2 col-md-12 col-sm-12 col-xs-4">
               <h5 class="heading">Newsletter</h5>
-              <ul class="card-text text-center">
+              <ul class="card-text">
                 <li>
                   <form>
-                    <div class="input-group">
+                    <div class="input-group d-flex justify-content-center">
                       <input
                         type="email"
                         class="form-control"
@@ -221,15 +217,17 @@
                     </div>
                   </form>
                 </li>
-                <li>
-                  <i class="fab fa-cc-visa pink-hover font-bigger"></i
-                  ><i class="fab fa-cc-mastercard pink-hover font-bigger"></i
-                  ><i class="fab fa-cc-amex pink-hover font-bigger"></i>
-                </li>
-                <li>
-                  <i class="fab fa-cc-apple-pay pink-hover font-bigger"></i
-                  ><i class="fab fa-cc-paypal pink-hover font-bigger"></i>
-                </li>
+               
+                  <li class="payment-icon">
+                    <i class="fab fa-cc-visa pink-hover font-bigger"></i
+                    ><i class="fab fa-cc-mastercard pink-hover font-bigger"></i
+                    ><i class="fab fa-cc-amex pink-hover font-bigger"></i>
+                  </li>
+                  <li class="payment-icon">
+                    <i class="fab fa-cc-apple-pay pink-hover font-bigger"></i
+                    ><i class="fab fa-cc-paypal pink-hover font-bigger"></i>
+                  </li>
+              
               </ul>
             </div>
           </div>
@@ -244,7 +242,6 @@
         </div>
       </div>
     </footer>
+    <script src="./frontend/js/product.js"></script>
   </body>
-
-  <script src="./frontend/js/product.js"></script>
 </html>
