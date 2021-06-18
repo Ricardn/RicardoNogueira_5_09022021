@@ -59,6 +59,7 @@ function productContent(productObject) {
 function addToCart(productObject) {
   // Déclenchement au clic sur le boutton
   document.getElementById("product-addToCart").onclick = (event) => {
+    document.location.reload();
     // Créer un tableau contenant les informations du produit à ajouter au panier
     let productToAddinCart = [];
     let cart = [];
