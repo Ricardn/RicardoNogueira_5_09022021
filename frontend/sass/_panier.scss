@@ -1,12 +1,13 @@
-.container-product {
+.container-cart {
   max-width: 1400px;
   margin-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #f7f7f7;
+  background-color: $color-background;
   padding-top: 50px;
   padding-bottom: 50px;
+  overflow: scroll;
 }
 
 .row h1 {
@@ -55,36 +56,34 @@
   color: white;
 }
 
+/** Gift **/
 
+.gift-body {
+  vertical-align: middle;
+}
+
+.gift-image img {
+  width: 100px;
+  height: 80px;
+}
 
 /** Formulaire **/
 
 .container-formulaire {
   max-width: 1400px;
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
+  margin-top: 100px;
   background-color: #f7f7f7;
   padding-top: 50px;
   padding-bottom: 50px;
 }
 
-.form-row {
-  display: flex;
-  flex-direction: row;
+.identity .form-group,
+.adress .form-group,
+.adresscp .form-group {
+  margin: 10px;
+  width: 200px;
 }
-
-.col-5 {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-.form-group {
-  margin-left: 15px;
-}
-
 
 /** Paiement BTN **/
 

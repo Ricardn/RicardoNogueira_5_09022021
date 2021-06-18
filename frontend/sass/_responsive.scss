@@ -1,0 +1,42 @@
+@media screen and (min-width: 667px) {
+  /* Product */
+
+  .row-product {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  /* Assurance */
+
+  .row-assurance {
+    display: flex;
+    flex-direction: row;
+  }
+
+  /* Footer */
+
+  .row-footer {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .about,
+  .legal,
+  .guide,
+  .newsletter {
+    margin-top: 70px;
+  }
+
+  /* Cart */
+
+  .container-cart {
+    overflow: hidden;
+  }
+
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

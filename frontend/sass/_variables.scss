@@ -1,0 +1,80 @@
+/* Color Library */
+
+$color-white: white;
+$color-background: #f7f7f7;
+$color-nav: #f3e9f1;
+$color-link: black;
+$color-link-active: #ead9e7;
+$color-pink: #957bda;
+
+a {
+  text-decoration: none;
+}
+
+/* Header */
+
+.nav-link-color {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-link-color:hover {
+  color: $color-pink;
+  font-weight: 600;
+}
+
+.nav-link:active {
+  background: #ead9e7;
+}
+
+.assurance:hover {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.assurance:hover i {
+  color: #957bda;
+}
+
+.pink-hover:hover {
+  color: $color-pink;
+  cursor: pointer;
+}
+
+hr {
+  border-width: 3px;
+}
+
+.social,
+i {
+  padding: 1%;
+  font-size: 15px;
+}
+
+.icon-black {
+  color: $color-link;
+}
+
+.btn-shade {
+  color: $color-white;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 8px;
+  background: $color-pink;
+}
+
+.btn-shade:hover {
+  color: $color-white;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 8px;
+  background: linear-gradient(
+    90deg,
+    rgba(230, 138, 9, 1) 0%,
+    rgba(145, 92, 250, 1) 100%
+  );
+}
+
+.strong {
+  font-weight: 700;
+}
