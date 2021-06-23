@@ -52,14 +52,14 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0 mx-auto">
               <li class="nav-item active text-center">
                 <a class="nav-link-color" href="./index.html">
                   <i class="fas fa-home"></i>Home</a
                 >
               </li>
               <li class="nav-item text-center">
-                <a class="nav-link-color" href="./index.html/#Products"
+                <a class="nav-link-color" href="./index.html#Products"
                   ><i class="fas fa-shopping-bag"></i>Produits</a
                 >
               </li>
@@ -70,21 +70,23 @@
               </li>
               <li class="nav-item text-center cart">
                 <a class="nav-link-color" href="./panier.html"
-                  ><i class="fas fa-shopping-cart"></i>Panier
-                </a>
+                  ><i class="fas fa-shopping-cart"></i>Panier</a
+                  >
+              </li>
+              <li class="nav-item text-center mx-auto cartQty">
+                <span id="cartQuantity">0</span>
               </li>
             </ul>
             <div class="searchBar">
-              <form class="d-flex">
+              <form class="searchbar-form d-flex">
                 <input
                   type="text"
                   name="searchBar"
                   id="searchBar"
                   placeholder="Rechercher"
+                  onclick="showDiv()"
                 />
-                <button onclick="showDiv()" class="btn-shade" type="button">
-                  Rechercher
-                </button>
+                <button class="btn-searchBar">Rechercher</button>
               </form>
               <ul id="teddiesList"></ul>
             </div>
@@ -99,7 +101,7 @@
           <img
             id="product-img"
             class="img-fluid rounded-lg shadow"
-            src=""
+            src="#"
             alt="peluche"
           />
         </div>
@@ -242,6 +244,7 @@
         </div>
       </div>
     </footer>
+    <script src="./frontend/js/functions.js"></script>
     <script src="./frontend/js/product.js"></script>
   </body>
 </html>

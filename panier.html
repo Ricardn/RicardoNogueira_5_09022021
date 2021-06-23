@@ -31,7 +31,7 @@
       rel="stylesheet"
     />
 
-    <title>Orinoco</title>
+    <title>Panier - Orinoco</title>
   </head>
   <body>
     <header>
@@ -52,14 +52,14 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0 mx-auto">
               <li class="nav-item active text-center">
                 <a class="nav-link-color" href="./index.html">
                   <i class="fas fa-home"></i>Home</a
                 >
               </li>
               <li class="nav-item text-center">
-                <a class="nav-link-color" href="./index.html/#Products"
+                <a class="nav-link-color" href="./index.html#Products"
                   ><i class="fas fa-shopping-bag"></i>Produits</a
                 >
               </li>
@@ -70,21 +70,23 @@
               </li>
               <li class="nav-item text-center cart">
                 <a class="nav-link-color" href="./panier.html"
-                  ><i class="fas fa-shopping-cart"></i>Panier
-                </a>
+                  ><i class="fas fa-shopping-cart"></i>Panier</a
+                >
+              </li>
+              <li class="nav-item text-center mx-auto cartQty">
+                <span id="cartQuantity">0</span>
               </li>
             </ul>
             <div class="searchBar">
-              <form class="d-flex">
+              <form class="searchbar-form d-flex">
                 <input
                   type="text"
                   name="searchBar"
                   id="searchBar"
                   placeholder="Rechercher"
+                  onclick="showDiv()"
                 />
-                <button onclick="showDiv()" class="btn-shade" type="button">
-                  Rechercher
-                </button>
+                <button class="btn-searchBar">Rechercher</button>
               </form>
               <ul id="teddiesList"></ul>
             </div>
@@ -97,17 +99,13 @@
       <div class="row justify-content-center mx-auto">
         <div class="cart-header">
           <i class="fa fa-shopping-cart"></i>
-          <h1 class="">Votre Panier</h1> 
+          <h1 class="">Votre Panier</h1>
         </div>
-         
+
         <div id="div-panier" class="col-auto">
           <table
             id="tableau-panier"
-            class="
-              text-center
-              table table-responsive
-              text-nowrap
-            "
+            class="text-center table table-responsive text-nowrap"
           >
             <thead>
               <tr>
@@ -125,17 +123,21 @@
             <tbody id="tableau-body"></tbody>
             <tbody id="gift-body">
               <tr class="gift-body">
-                <td class="gift-image d-none d-md-block" ><img src="./frontend/images/gift.jpg" class="rounded-lg" alt=""></td>
-                <td class="gift-name">Freddie </td>
+                <td class="gift-image d-none d-md-block">
+                  <img
+                    src="./frontend/images/gift.jpg"
+                    class="rounded-lg"
+                    alt=""
+                  />
+                </td>
+                <td class="gift-name">Freddie</td>
                 <td class="gift-color">White</td>
                 <td></td>
                 <td class="gift-quantity">1</td>
                 <td></td>
                 <td class="gift-price">Offert</td>
               </tr>
-          
             </tbody>
-
           </table>
           <p id="montant-panier" class="text-center">
             Montant total du panier :
@@ -144,15 +146,16 @@
         </div>
       </div>
       <div class="col text-center mt-4">
-        <a href="#cart-formulaire" onclick="showForm()" class="btn-shade">Valider le Panier</a>
+        <a href="#cart-formulaire" onclick="showForm()" class="btn-shade"
+          >Valider le Panier</a
+        >
       </div>
     </div>
-
 
     <section id="cart-formulaire">
       <div class="container-formulaire mx-auto">
         <div class="cart-header text-center">
-          <h2 class="">Informations</h2> 
+          <h2 class="">Informations</h2>
         </div>
         <form id="formulaire" class="p-4 m-4">
           <div class="form-row">
@@ -260,24 +263,28 @@
               </div>
             </div>
           </div>
-          
-          <div class="form-group">
+
+          <div class="form-group champs">
             <small
-            id="formulaireHelpBlock"
-            class="form-text text-muted font-italic mb-4"
-          >
-            Champs Obligatoires*
-          </small>
+              id="formulaireHelpBlock"
+              class="form-text text-muted font-italic mb-4"
+            >
+              Champs Obligatoires*
+            </small>
           </div>
           <div class="btn-validation col text-center mt-4">
-              <button id="submit-form" type="submit" value="" class="btn-shade mx-auto">Procéder au paiement</button>
+            <button
+              id="submit-form"
+              type="submit"
+              value=""
+              class="btn-shade mx-auto"
+            >
+              Procéder au paiement
+            </button>
           </div>
         </form>
       </div>
     </section>
-    
-    
-    
 
     <footer>
       <div class="container-footer">
@@ -305,7 +312,7 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="about col-lg-2 col-md-4 col-sm-4 col-xs-4">
               <h5 class="heading">A Propos</h5>
               <ul>
@@ -351,17 +358,16 @@
                     </div>
                   </form>
                 </li>
-               
-                  <li class="payment-icon">
-                    <i class="fab fa-cc-visa pink-hover font-bigger"></i
-                    ><i class="fab fa-cc-mastercard pink-hover font-bigger"></i
-                    ><i class="fab fa-cc-amex pink-hover font-bigger"></i>
-                  </li>
-                  <li class="payment-icon">
-                    <i class="fab fa-cc-apple-pay pink-hover font-bigger"></i
-                    ><i class="fab fa-cc-paypal pink-hover font-bigger"></i>
-                  </li>
-              
+
+                <li class="payment-icon">
+                  <i class="fab fa-cc-visa pink-hover font-bigger"></i
+                  ><i class="fab fa-cc-mastercard pink-hover font-bigger"></i
+                  ><i class="fab fa-cc-amex pink-hover font-bigger"></i>
+                </li>
+                <li class="payment-icon">
+                  <i class="fab fa-cc-apple-pay pink-hover font-bigger"></i
+                  ><i class="fab fa-cc-paypal pink-hover font-bigger"></i>
+                </li>
               </ul>
             </div>
           </div>
