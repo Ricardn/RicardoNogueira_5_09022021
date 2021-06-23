@@ -75,6 +75,27 @@ i {
   );
 }
 
+.btn-searchBar {
+  color: $color-white;
+  font-weight: 600;
+  border-radius: 0px 10px 10px 0px;
+  padding: 8px;
+  background: $color-pink;
+}
+
+.btn-searchBar:hover {
+  color: $color-white;
+  border-radius: 0px 10px 10px 0px;
+  font-weight: 600;
+  padding: 8px;
+  background: linear-gradient(
+    90deg,
+    rgba(230, 138, 9, 1) 0%,
+    rgba(145, 92, 250, 1) 100%
+  );
+}
+
+
 .strong {
   font-weight: 700;
 }

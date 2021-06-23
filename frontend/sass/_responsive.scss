@@ -1,4 +1,24 @@
+@media screen and (min-width: 568px) and (max-width: 568px) and (orientation: landscape) {
+  .container-formulaire {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 @media screen and (min-width: 667px) {
+  /* Header */
+
+  .cart span {
+    font-weight: 600;
+    position: relative;
+    border-radius: 10px;
+    background: white;
+    padding: 4px;
+    margin-left: 10px;
+    transform: translateY(-20px);
+    background: red;
+  }
+
   /* Product */
 
   .row-product {
@@ -39,4 +59,14 @@
     display: flex;
     flex-wrap: wrap;
   }
+}
+
+@media screen and (min-width: 1024px) {
+  .identity {
+    transform: translateX(310px);
+  }
+  .champs {
+      transform: translateX(310px);
+  }
+
 }
