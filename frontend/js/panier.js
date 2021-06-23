@@ -38,22 +38,23 @@ for (i = 0; i < tabLocalStorage.length; i++) {
 for (i = 0; i < tabLocalStorage.length; i++) {
     // image
     const image = document.getElementById(`image${[i]}`);
-    image.src = tabLocalStorage[i][5];
+    image.src = tabLocalStorage[i].imgUrl;
     // nom
     const name = document.getElementById(`name${[i]}`);
-    name.textContent = tabLocalStorage[i][0];
+    name.textContent = tabLocalStorage[i].name;
     // couleur
     const color = document.getElementById(`color${[i]}`);
-    color.textContent = tabLocalStorage[i][1];
+    color.textContent = tabLocalStorage[i].variant;
     // quantité
     const quantity = document.getElementById(`quantity${[i]}`);
-    quantity.textContent = tabLocalStorage[i][3];
+    quantity.textContent = tabLocalStorage[i].quantity;
+
     // prix unitaire
     const prixU = document.getElementById(`prixU${[i]}`);
-    prixU.textContent = `${tabLocalStorage[i][2] / 100}.00 €`;
+    prixU.textContent = `${tabLocalStorage[i].price / 100}.00 €`;
     // prix total par articles
     const prixT = document.getElementById(`prixT${[i]}`);
-    prixT.textContent = `${(tabLocalStorage[i][2] / 100) * tabLocalStorage[i][3]}€`;
+    prixT.textContent = `${(tabLocalStorage[i].price / 100) * tabLocalStorage[i].quantity}€`;
 }
 
 // Fonction calcul et affichage du prix Total à payer
@@ -61,7 +62,7 @@ const prixTotalPanier = document.getElementById(`prix-total-panier`);
 function calcPrixTotal (tabLocalStorage) {
     var prixTotalPanier = 0;
     for (i = 0; i < tabLocalStorage.length; i++){
-        prixTotalPanier = prixTotalPanier + (tabLocalStorage[i][3] * tabLocalStorage[i][2]);
+        prixTotalPanier = prixTotalPanier + (tabLocalStorage[i].quantity * tabLocalStorage[i].price);
     }
     prixTotalPanier = prixTotalPanier / 100;
     return prixTotalPanier;
@@ -71,7 +72,7 @@ prixTotalPanier.textContent = `${calcPrixTotal(tabLocalStorage)}.00 €`;
 // Fonction quantité +1
 var addOne = function() {
     var lastChar = this.id.substr(this.id.length - 1);
-    tabLocalStorage[lastChar][3] = tabLocalStorage[lastChar][3] + 1;
+    tabLocalStorage[lastChar].quantity = tabLocalStorage[lastChar].quantity + 1;
     localStorage.setItem('shopCart',JSON.stringify(tabLocalStorage));
     document.location.reload();
 }
@@ -79,16 +80,16 @@ var addOne = function() {
 // Fonction quantité -1
 var delOne = function(){
     var lastChar = this.id.substr(this.id.length - 1);
-    tabLocalStorage[lastChar][3] = tabLocalStorage[lastChar][3] - 1;
+    tabLocalStorage[lastChar].quantity = tabLocalStorage[lastChar].quantity - 1;
     // if quantity = 0
-    if (tabLocalStorage[lastChar][3] === 0) {
-        var userConfirm = confirm(`Vous êtes sur le point de supprimer ${tabLocalStorage[lastChar][0]} de votre panier \nConfirmer ?`);
+    if (tabLocalStorage[lastChar].quantity === 0) {
+        var userConfirm = confirm(`Vous êtes sur le point de supprimer ${tabLocalStorage[lastChar].name} de votre panier \nConfirmer ?`);
         if (userConfirm == true) {
             tabLocalStorage.splice(lastChar,1);
             localStorage.setItem('shopCart',JSON.stringify(tabLocalStorage));
             document.location.reload();
         } else {
-            tabLocalStorage[lastChar][3] = tabLocalStorage[lastChar][3] + 1;
+            tabLocalStorage[lastChar].quantity = tabLocalStorage[lastChar].quantity + 1;
             document.location.reload();
         };
     };
@@ -151,8 +152,8 @@ formClient.addEventListener('submit', async function(event) {
 // Fonction creation du tableau d'ID pour envoi au serveur
 function createFinalOrder(panierFinalOrder) {
     tabLocalStorage.forEach(element => {
-        for (q = 0; q < element[3]; q++){
-            const eachProduct = element[4];
+        for (q = 0; q < element.quantity; q++){
+            const eachProduct = element.id;
             panierFinalOrder.push(eachProduct);
         };
     });

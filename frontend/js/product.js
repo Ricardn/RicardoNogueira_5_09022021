@@ -54,50 +54,52 @@ function productContent(productObject) {
   }
 }
 
-// Fonction ajouter l'article dans le panier
 
+// Fonction ajouter l'article dans le panier
 function addToCart(productObject) {
   // Déclenchement au clic sur le boutton
   document.getElementById("product-addToCart").onclick = (event) => {
     document.location.reload();
     // Créer un tableau contenant les informations du produit à ajouter au panier
-    let productToAddinCart = [];
-    let cart = [];
 
-    productToAddinCart[0] = productObject.name;
-    productToAddinCart[1] = document.getElementById(`product-color`).value;
-    productToAddinCart[2] = productObject.price;
-    productToAddinCart[3] = parseInt(
+    let productToAddinCart = {
+      id: "",
+      name: "",
+      variant: "",
+      price: 0,
+      quantity: 0,
+      imgUrl: "",
+    };
+
+    productToAddinCart.id = productObject._id;
+    productToAddinCart.name = productObject.name;
+    productToAddinCart.variant = document.getElementById(`product-color`).value;
+    productToAddinCart.price = productObject.price;
+    productToAddinCart.quantity = parseInt(
       document.getElementById(`product-quantity`).value,
       10
     );
-    productToAddinCart[4] = productObject._id;
-    productToAddinCart[5] = productObject.imageUrl;
-    // Vérifier si le panier existe dans localstorage :
-    // si NON : créér la variable panier (cart), ajouter le produit, et sauvegarder avec localstorage
-    // si OUI : Rechercher si un article identique est déjà dans le panier :
-    // si OUI : Ajouter à la quantité existante et sauvegarder avec localstorage
-    // si NON : Ajouter l'article à la suite de la liste
+    productToAddinCart.imgUrl = productObject.imageUrl;
+
+    
+    let cart = [];
+
     if (localStorage.getItem("shopCart") === null) {
       cart.push(productToAddinCart);
-      localStorage.setItem("shopCart", JSON.stringify(cart));
     } else {
-      let tabLocalStorage = JSON.parse(localStorage.getItem("shopCart"));
-      condition: {
-        for (i = 0; i < tabLocalStorage.length; i++) {
-          if (
-            tabLocalStorage[i][0] == productToAddinCart[0] &&
-            tabLocalStorage[i][1] == productToAddinCart[1]
-          ) {
-            tabLocalStorage[i][3] =
-              tabLocalStorage[i][3] + productToAddinCart[3];
-            localStorage.setItem("shopCart", JSON.stringify(tabLocalStorage));
-            break condition;
-          }
-        }
-        tabLocalStorage.push(productToAddinCart);
-        localStorage.setItem("shopCart", JSON.stringify(tabLocalStorage));
+      cart = JSON.parse(localStorage.getItem("shopCart"));
+      
+      const existIndex = cart.findIndex(productIncart => {
+        return productIncart.id === productToAddinCart.id && productIncart.variant === productToAddinCart.variant;
+      });
+
+      // si il existe pas
+      if (existIndex === -1) {
+        cart.push(productToAddinCart);
+      } else {
+        cart[existIndex].quantity += productToAddinCart.quantity;
       }
     }
+    localStorage.setItem("shopCart", JSON.stringify(cart));
   };
 }
