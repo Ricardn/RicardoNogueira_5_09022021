@@ -201,6 +201,8 @@ label {
 
 /** Formulaire **/
 .container-formulaire {
+  display: flex;
+  flex-direction: column;
   max-width: 1400px;
   justify-content: center;
   margin-top: 100px;
@@ -431,12 +433,9 @@ iframe {
   }
 }
 @media screen and (min-width: 1024px) {
-  .identity {
-    transform: translateX(310px);
-  }
-
-  .champs {
-    transform: translateX(310px);
+  .container-formulaire {
+    display: block;
+    justify-content: space-between;
   }
 }
 * {

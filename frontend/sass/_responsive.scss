@@ -62,11 +62,9 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .identity {
-    transform: translateX(310px);
-  }
-  .champs {
-      transform: translateX(310px);
+  .container-formulaire {
+    display: block;
+    justify-content: space-between;
   }
 
 }

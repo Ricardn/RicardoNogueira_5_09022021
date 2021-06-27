@@ -70,6 +70,8 @@
 /** Formulaire **/
 
 .container-formulaire {
+  display: flex;
+  flex-direction: column;
   max-width: 1400px;
   justify-content: center;
   margin-top: 100px;
