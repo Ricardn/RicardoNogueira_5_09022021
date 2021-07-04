@@ -6,9 +6,7 @@ mainProduct();
 // Fonction Principale:
 async function mainProduct() {
   const productId = getProductId();
-  console.log("l'ID produit récupéré dans l'URL est le suivant: ", productId);
   const productObject = await getProductList(productId);
-  console.log("Les informations reçues par le serveur: ", productObject);
   productContent(productObject);
   addToCart(productObject);
 }
