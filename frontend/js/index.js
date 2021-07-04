@@ -5,14 +5,11 @@ main(); // Call main Function
 // Main Async Function:
 async function main() {
   const productList = await getProductList();
-  console.log(
-    "ProductList: ",
-    productList
-  );
   productContent(productList);
 }
 
 // Fonction getProductList: récupération des données sur le serveur
+
 function getProductList() {
   return fetch(serverUrl).then(function (response) {
     return response
@@ -26,22 +23,37 @@ function getProductList() {
   });
 }
 
-// Selectionne les élements HTML et leut passe le contenu récupéré sur le serveur
+// Récupére les informations de productList et les implante au bon endroit
 function productContent(productList) {
   for (i = 0; i < productList.length; i++) {
-    const cardImg = document.getElementById(`product-${i}-img`);
-    cardImg.src = productList[i].imageUrl;
-
-    const cardName = document.getElementById(`product-${i}-name`);
-    cardName.innerText = productList[i].name;
-
-    const cardDescription = document.getElementById(`product-${i}-description`);
-    cardDescription.innerText = productList[i].description;
-
-    const cardPrice = document.getElementById(`product-${i}-price`);
-    cardPrice.innerText = `${productList[i].price / 100}.00 €`;
-
-    const cardLink = document.getElementById(`product-${i}-link`);
-    cardLink.href = `product.html?id=${productList[i]._id}`;
+    document.querySelector("#container-product-row").insertAdjacentHTML(
+      "beforeend",
+      `
+      <div class="col-12 col-md-5 col-lg-5 mt-4">
+      <div class="
+                card-product
+                col-sm col-example
+                text-center
+                white
+                shadow
+                padding-card
+              ">
+      <div class="Product-block-card" data-id="${productList[i]._id}">        
+        <figure class="card-product-grid mb-0 card-sm">
+          <div class="product-image img-wrap">
+            <img src="${
+              productList[i].imageUrl
+            }" class="img-teddy-card" alt="Peluche ${productList[i].name}">
+          </div>
+          <div class"Product-informations">
+            <h2 class="card-title">${productList[i].name}</h2>
+            <p class="card-price">${productList[i].price / 100}.00 €</p>
+            <a class="btn-shade" href="./product.html?id=${
+              productList[i]._id
+            }" type="button">En Savoir Plus</a>
+          </div>
+        </figure>
+      </div>`
+    );
   }
 }
