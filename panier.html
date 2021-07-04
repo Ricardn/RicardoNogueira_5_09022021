@@ -153,136 +153,76 @@
     </div>
 
     <section id="cart-formulaire">
-      <div class="container-formulaire mx-auto">
-        <div class="cart-header text-center">
-          <h2 class="">Informations</h2>
-        </div>
-        <form id="formulaire" class="p-4 m-4">
-          <div class="form-row">
-            <div class="col-5 identity">
-              <div class="form-group col-md-6">
-                <label for="inputNom">Nom*</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="inputNom"
-                  placeholder="Nom"
-                  maxlength="32"
-                  pattern="^(?=.{1,32}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$"
-                  required
-                />
-              </div>
-              <div class="form-group col-md-6">
-                <label for="inputPrenom">Prénom*</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="inputPrenom"
-                  maxlength="32"
-                  pattern="^(?=.{1,32}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$"
-                  placeholder="Prénom"
-                  required
-                />
-              </div>
-              <div class="form-group col-md-6">
-                <label for="inputEmail">Email*</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="inputEmail"
-                  placeholder="exemple@gmail.com"
-                  required
-                />
-              </div>
-              <div class="form-group col-md-6">
-                <label for="inputTel">Telephone*</label>
-                <input
-                  type="tel"
-                  class="form-control"
-                  id="inputTel"
-                  placeholder="06xxxxxxxx"
-                  pattern="[0]{1}[0-9]{9}"
-                  required
-                />
-              </div>
+      <div id="test" class="container-formulaire mx-auto">
+        <div class="container">
+          <form id="form" class="form">
+            <div class="cart-header text-center">
+              <h2 class="">Informations</h2>
             </div>
-            <div class="col-5">
-              <div class="form-row adress">
-                <div class="form-group col-md-3">
-                  <label for="inputNumberAddress">N° de voie*</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputNumberAddress"
-                    placeholder="N° de voie"
-                    required
-                  />
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputAddress">Adresse*</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputAddress"
-                    placeholder="Adresse"
-                    required
-                  />
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputAddress2">Complément d'adresse</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputAddress2"
-                    placeholder="Appartement, étage..."
-                  />
-                </div>
-              </div>
-              <div class="form-row adresscp">
-                <div class="form-group col-md-3">
-                  <label for="inputCP">Code Postal*</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputCP"
-                    pattern="[0-9]{1}[0-9]{4}"
-                    required
-                  />
-                </div>
-                <div class="form-group col-md-9 city">
-                  <label for="inputCity">Ville*</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputCity"
-                    maxlength="32"
-                    pattern="^(?=.{1,32}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$"
-                    required
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="form-group champs">
-            <small
-              id="formulaireHelpBlock"
-              class="form-text text-muted font-italic mb-4"
-            >
-              Champs Obligatoires*
-            </small>
-          </div>
-          <div class="btn-validation col text-center mt-4">
-            <button
-              id="submit-form"
-              type="submit"
-              value=""
-              class="btn-shade mx-auto"
-            >
-              Procéder au paiement
-            </button>
-          </div>
-        </form>
+            <div class="form-control">
+              <label for="lastname">Nom</label>
+              <input type="text" placeholder="Nom" id="lastNameInput" />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+
+            <div class="form-control">
+              <label for="firstname">Prénom</label>
+              <input type="text" placeholder="Prénom" id="firstNameInput" />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+
+            <div class="form-control">
+              <label for="email">Email</label>
+              <input type="text" placeholder="Email" id="emailInput" />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+
+            <div class="cart-header text-center">
+              <h2 class="">Informations de Livraison</h2>
+            </div>
+
+            <div class="form-control">
+              <label for="NumberAdress">N° Adresse</label>
+              <input type="text" placeholder="N° Adresse" id="numberAdressInput" />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+
+            <div class="form-control">
+              <label for="Adress">Adresse</label>
+              <input type="text" placeholder="Adresse" id="adressInput" />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+
+            <div class="form-control">
+              <label for="city">Ville</label>
+              <input type="text" placeholder="Ville" id="cityInput" />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+
+            <div class="form-control">
+              <label for="country">Pays</label>
+              <input type="text" placeholder="Pays" id="countryInput" />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small>Error message</small>
+            </div>
+
+            <button id="submit">Submit</button>
+          </form>
+        </div>
       </div>
     </section>
 
