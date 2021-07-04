@@ -45,15 +45,6 @@ function showDiv() {
   }
 }
 
-function showForm() {
-  var x = document.getElementById("cart-formulaire");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
-
 // Cart Qty
 let cartItems = JSON.parse(localStorage.getItem("shopCart"));
 
