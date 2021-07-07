@@ -135,6 +135,7 @@ for (i = 0; i < tabLocalStorage.length; i++) {
 
 // Formulaire
 
+//déclaration de mes constantes
 const form = document.getElementById("form");
 const lastName = document.getElementById("lastNameInput");
 const firstName = document.getElementById("firstNameInput");
@@ -147,10 +148,6 @@ const numberAdresspatern = /^[a-zA-Z0-9\s,'-]*$/;
 const textpattern = /^[a-zA-Z\s]{2,}$/;
 const emailpattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
 
-
-
-
-
 // Function Error
 function setErrorFor(input, message) {
   const formControl = input.parentElement;
@@ -158,18 +155,49 @@ function setErrorFor(input, message) {
   formControl.className = "form-control error";
   small.innerText = message;
 }
+
 // Function Success
 function setSuccessFor(input) {
   const formControl = input.parentElement;
   formControl.className = "form-control success";
+  formControl.id = "success";
+}
+/*
+function validated() {
+  //Fetch all the forms we want to apply validation
+  var inputs = document.querySelectorAll("form");
+
+  //Loop over them and prevent submission
+  Array.prototype.slice.call(inputs).forEach(function (form) {
+    form.addEventListener(
+      "submit",
+      function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+
+        }
+        form.classList.add("was-validated");   
+      },
+      false
+    );
+  });
+};*/
+
+
+
+function validated() {
+  if (document.querySelectorAll("form") !== null) {
+    console.log("ok");
+    //window.location.href = "./validation.html";
+  } else {
+    console.log("Non ok");
+  }
 }
 
 
-
-
-
 //Vérification de la saisie dans les champs du formulaire
-form.addEventListener("submit", async(e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   //Créer le tableau final des produits
@@ -275,13 +303,8 @@ form.addEventListener("submit", async(e) => {
       "Veuillez remplir corectement les informations [A-Z]."
     );
   }
-  setSuccessFor();
+  await sendOrder(order);
 });
-
-
-
-
-
 
 // Fonction creation du tableau d'ID pour envoi au serveur
 function createFinalOrder(panierFinalOrder) {
@@ -302,6 +325,5 @@ async function sendOrder(order) {
   };
   const response = await fetch(`${serverUrl}/order`, options);
   const serverResponse = await response.json();
-  console.log(serverResponse);
   localStorage.setItem("order", JSON.stringify(serverResponse));
 }
