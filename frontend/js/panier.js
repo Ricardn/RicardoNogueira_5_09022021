@@ -27,11 +27,11 @@ for (i = 0; i < tabLocalStorage.length; i++) {
   ]}' class="rounded-lg" width="100px" src="" alt="peluche"></td>
     <td id='name${[i]}' class="align-middle"></td>
     <td id='color${[i]}' class="align-middle"></td>
-    <td class="align-middle px-0"><button type="button" id='quantity_less_${[
+    <td class="align-middle px-0 "><button type="button" class="btn-remove btn" id='quantity_less_${[
       i,
     ]}' class="btn btn-pink btn-sm"><i class="fa fa-minus"></i></button></td>
     <td id='quantity${[i]}' class="align-middle px-0"></td>
-    <td class="align-middle px-0"><button type="button" id='quantity_plus_${[
+    <td class="align-middle px-0"><button type="button" class="btn-add btn" id='quantity_plus_${[
       i,
     ]}' class="btn btn-pink btn-sm"><i class="fa fa-plus"></i></button></td>
     <td id='prixU${[i]}' class="align-middle d-none"></td>
@@ -137,13 +137,14 @@ for (i = 0; i < tabLocalStorage.length; i++) {
 
 //déclaration de mes constantes
 const form = document.getElementById("form");
-const lastName = document.getElementById("lastNameInput");
-const firstName = document.getElementById("firstNameInput");
-const email = document.getElementById("emailInput");
-const adress = document.getElementById("adressInput");
-const city = document.getElementById("cityInput");
-const country = document.getElementById("countryInput");
+const lastNameInput = document.getElementById("lastNameInput");
+const firstNameInput = document.getElementById("firstNameInput");
+const emailInput = document.getElementById("emailInput");
+const adressInput = document.getElementById("adressInput");
+const cityInput = document.getElementById("cityInput");
+const countryInput = document.getElementById("countryInput");
 
+// Pattern utilisées
 const numberAdresspatern = /^[a-zA-Z0-9\s,'-]*$/;
 const textpattern = /^[a-zA-Z\s]{2,}$/;
 const emailpattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
@@ -162,43 +163,91 @@ function setSuccessFor(input) {
   formControl.className = "form-control success";
   formControl.id = "success";
 }
-/*
-function validated() {
-  //Fetch all the forms we want to apply validation
-  var inputs = document.querySelectorAll("form");
 
-  //Loop over them and prevent submission
-  Array.prototype.slice.call(inputs).forEach(function (form) {
-    form.addEventListener(
-      "submit",
-      function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
+// Check if the is respected
+//field = input in Html
+function checkPattern(field, pattern, errorMsg) {
+  const value = field.value;
 
-        }
-        form.classList.add("was-validated");   
-      },
-      false
-    );
-  });
-};*/
-
-
-
-function validated() {
-  if (document.querySelectorAll("form") !== null) {
-    console.log("ok");
-    //window.location.href = "./validation.html";
-  } else {
-    console.log("Non ok");
+  //short return method
+  // if value of field is empty, setError and return false
+  if (value === "") {
+    setErrorFor(field, "Veuillez remplir les informations.");
+    return false;
   }
+
+  // if value of field do not match with any pattern, setError and return false
+  if (!value.match(pattern)) {
+    setErrorFor(field, errorMsg);
+
+    return false;
+  }
+
+  // if everythin is ok, setSucess and return true
+  setSuccessFor(field);
+  return true;
 }
 
+// Check if form is validated
+async function validateForm(form) {
+  let valid = true;
+  const fields = form.querySelectorAll("input");
+
+  // loop to check every field, type and Id of form 
+  for (let i = 0; i < fields.length; i++) {
+    const field = fields[i];
+    const type = field.type;
+    const typeId = field.id;
+
+    let isFieldValid = false;
+
+    //Switch Field Type
+    switch (type) {
+      case "text":
+        isFieldValid = checkPattern(
+          field,
+          textpattern,
+          "Veuillez remplir corectement les informations [A-Z]"
+        );
+        break;
+      case "email":
+        isFieldValid = checkPattern(field, emailpattern, "Format non valide.");
+        break;
+      default:
+        break;
+    }
+
+    // Switch Field Type ID
+    switch (typeId) {
+      case "numberAdressInput":
+        isFieldValid = checkPattern(
+          field,
+          numberAdresspatern,
+          "Veuillez remplir corectement les informations [A-Z][0-9]"
+        );
+        break;
+      default:
+        break;
+    }
+
+    // start isFieldValid = false, if at the end isFieldValid return false, so valid return false
+    if (isFieldValid === false) {
+      valid = false;
+    }
+  }
+  // if everything is ok, valid will return true
+  return valid;
+}
 
 //Vérification de la saisie dans les champs du formulaire
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+
+  const valid = await validateForm(form);
+
+  if (!valid) {
+    return;
+  }
 
   //Créer le tableau final des produits
   const panierFinalOrder = [];
@@ -227,83 +276,12 @@ form.addEventListener("submit", async (e) => {
     products: panierFinalOrder,
   };
 
-  //Informations Client
-  if (lastNameValue === "") {
-    setErrorFor(lastNameInput, "Veuillez remplir les informations.");
-  } else if (lastNameValue.match(textpattern)) {
-    setSuccessFor(lastNameInput);
-  } else {
-    setErrorFor(
-      lastNameInput,
-      "Veuillez remplir corectement les informations [A-Z]"
-    );
-  }
-
-  if (firstNameValue === "") {
-    setErrorFor(firstNameInput, "Veuillez remplir les informations.");
-  } else if (firstNameValue.match(textpattern)) {
-    setSuccessFor(firstNameInput);
-  } else {
-    setErrorFor(
-      firstNameInput,
-      "Veuillez remplir corectement les informations [A-Z]"
-    );
-  }
-
-  if (emailValue === "") {
-    setErrorFor(emailInput, "Veuillez remplir les informations.");
-  } else if (emailValue.match(emailpattern)) {
-    setSuccessFor(emailInput);
-  } else {
-    setErrorFor(emailInput, "Format non valide.");
-  }
-
-  //Informations Livraison
-
-  if (numberAdressValue === "") {
-    setErrorFor(numberAdressInput, "Veuillez remplir les informations.");
-  } else if (numberAdressValue.match(numberAdresspatern)) {
-    setSuccessFor(numberAdressInput);
-  } else {
-    setErrorFor(
-      numberAdressInput,
-      "Veuillez remplir corectement les informations [0-9]."
-    );
-  }
-
-  if (adressValue === "") {
-    setErrorFor(adressInput, "Veuillez remplir les informations.");
-  } else if (adressValue.match(textpattern)) {
-    setSuccessFor(adressInput);
-  } else {
-    setErrorFor(
-      adressInput,
-      "Veuillez remplir corectement les informations [A-Z]."
-    );
-  }
-
-  if (cityValue === "") {
-    setErrorFor(cityInput, "Veuillez remplir les informations.");
-  } else if (cityValue.match(textpattern)) {
-    setSuccessFor(cityInput);
-  } else {
-    setErrorFor(
-      cityInput,
-      "Veuillez remplir corectement les informations [A-Z]."
-    );
-  }
-
-  if (countryValue === "") {
-    setErrorFor(countryInput, "Veuillez remplir les informations.");
-  } else if (countryValue.match(textpattern)) {
-    setSuccessFor(countryInput);
-  } else {
-    setErrorFor(
-      countryInput,
-      "Veuillez remplir corectement les informations [A-Z]."
-    );
-  }
   await sendOrder(order);
+
+  // Timer set 1s for costumer better experience
+  setTimeout(() => {
+    window.location.href = "validation.html";
+  }, 1000);
 });
 
 // Fonction creation du tableau d'ID pour envoi au serveur
