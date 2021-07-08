@@ -84,9 +84,10 @@
                   name="searchBar"
                   id="searchBar"
                   placeholder="Rechercher"
-                  onclick="showDiv()"
                 />
-                <button class="btn-searchBar">Rechercher</button>
+                <button type="button" id="search-btn" class="btn-searchBar">
+                  Rechercher
+                </button>
               </form>
               <ul id="teddiesList"></ul>
             </div>
@@ -146,9 +147,7 @@
         </div>
       </div>
       <div class="col text-center mt-4">
-        <a href="#cart-formulaire" onclick="showForm()" class="btn-shade"
-          >Valider le Panier</a
-        >
+        <a href="#cart-formulaire" class="btn-shade">Valider le Panier</a>
       </div>
     </div>
 
@@ -178,7 +177,7 @@
 
             <div class="form-control">
               <label for="email">Email</label>
-              <input type="text" placeholder="Email" id="emailInput" />
+              <input type="email" placeholder="Email" id="emailInput" />
               <i class="fas fa-check-circle"></i>
               <i class="fas fa-exclamation-circle"></i>
               <small>Error message</small>
@@ -190,7 +189,11 @@
 
             <div class="form-control">
               <label for="NumberAdress">N° Adresse</label>
-              <input type="text" placeholder="N° Adresse" id="numberAdressInput" />
+              <input
+                type="text"
+                placeholder="N° Adresse"
+                id="numberAdressInput"
+              />
               <i class="fas fa-check-circle"></i>
               <i class="fas fa-exclamation-circle"></i>
               <small>Error message</small>
@@ -219,8 +222,12 @@
               <i class="fas fa-exclamation-circle"></i>
               <small>Error message</small>
             </div>
-
-            <button id="submit" type="submit" onclick="validated()">Submit</button>
+            <div class="form-button text-center">
+              <button class="btn-shade btn-form" id="submit" type="submit">
+                Valider la Commande
+              </button>
+              
+            </div>
           </form>
         </div>
       </div>
@@ -293,7 +300,7 @@
                         placeholder="Votre email"
                       />
                       <span class="input-group-btn newsletter-btn">
-                        <button class="btn" type="submit">Ok</button>
+                        <button class="btn" type="button">Ok</button>
                       </span>
                     </div>
                   </form>
