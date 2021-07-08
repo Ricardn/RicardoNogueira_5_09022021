@@ -1,6 +1,11 @@
 const teddiesList = document.getElementById("teddiesList");
 const searchBar = document.getElementById("searchBar");
+const btn = document.getElementById("search-btn");
 let hpTeddies = [];
+
+btn.addEventListener("click", (e) => {
+  showDiv();
+});
 
 searchBar.addEventListener("keyup", (e) => {
   const searchString = e.target.value.toLowerCase();
@@ -35,6 +40,8 @@ const displayTeddies = (teddies) => {
   teddiesList.innerHTML = htmlString;
 };
 
+
+// metre la partie onclick directement sur la fonction
 function showDiv() {
   var x = document.getElementById("showTeddie");
   if (x.style.display === "block") {
