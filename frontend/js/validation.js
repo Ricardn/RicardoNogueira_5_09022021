@@ -10,6 +10,6 @@ spanId.textContent = orderObject.orderId;
 
 //user Informations
 const userName = document.getElementById('name');
-userName.textContent = orderObject.contact.lastName;
+userName.textContent = orderObject.contact.firstName;
 
 localStorage.removeItem("shopCart");
