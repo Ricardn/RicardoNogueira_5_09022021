@@ -1,4 +1,8 @@
 const serverUrl = "http://localhost:3000/api/teddies";
+const frCurrency = new Intl.NumberFormat("fr-FR", {
+  style: "currency",
+  currency: "EUR",
+});
 
 // Récupération du contenu du panier dans le localstorage
 let tabLocalStorage = JSON.parse(localStorage.getItem("shopCart"));
@@ -57,9 +61,6 @@ for (i = 0; i < tabLocalStorage.length; i++) {
   const quantity = document.getElementById(`quantity${[i]}`);
   quantity.textContent = tabLocalStorage[i].quantity;
 
-  // prix unitaire
-  const prixU = document.getElementById(`prixU${[i]}`);
-  prixU.textContent = `${tabLocalStorage[i].price / 100}.00 €`;
   // prix total par articles
   const prixT = document.getElementById(`prixT${[i]}`);
   prixT.textContent = `${
@@ -68,33 +69,34 @@ for (i = 0; i < tabLocalStorage.length; i++) {
 }
 
 // Fonction calcul et affichage du prix Total à payer
-const prixTotalPanier = document.getElementById(`prix-total-panier`);
+const totalPrice = document.getElementById(`prix-total-panier`);
+const number = (totalPrice.textContent = `${calcPrixTotal(tabLocalStorage)}`);
+
 function calcPrixTotal(tabLocalStorage) {
-  var prixTotalPanier = 0;
+  let totalPrice = 0;
   for (i = 0; i < tabLocalStorage.length; i++) {
-    prixTotalPanier =
-      prixTotalPanier + tabLocalStorage[i].quantity * tabLocalStorage[i].price;
+    totalPrice =
+      totalPrice + tabLocalStorage[i].quantity * tabLocalStorage[i].price;
   }
-  prixTotalPanier = prixTotalPanier / 100;
-  return prixTotalPanier;
+  totalPrice = totalPrice / 100;
+  return frCurrency.format(totalPrice);
 }
-prixTotalPanier.textContent = `${calcPrixTotal(tabLocalStorage)}.00 €`;
 
 // Fonction quantité +1
-var addOne = function () {
-  var lastChar = this.id.substr(this.id.length - 1);
+let addOne = function () {
+  let lastChar = this.id.substr(this.id.length - 1);
   tabLocalStorage[lastChar].quantity = tabLocalStorage[lastChar].quantity + 1;
   localStorage.setItem("shopCart", JSON.stringify(tabLocalStorage));
   document.location.reload();
 };
 
 // Fonction quantité -1
-var delOne = function () {
-  var lastChar = this.id.substr(this.id.length - 1);
+let delOne = function () {
+  let lastChar = this.id.substr(this.id.length - 1);
   tabLocalStorage[lastChar].quantity = tabLocalStorage[lastChar].quantity - 1;
   // if quantity = 0
   if (tabLocalStorage[lastChar].quantity === 0) {
-    var userConfirm = confirm(
+    let userConfirm = confirm(
       `Vous êtes sur le point de supprimer ${tabLocalStorage[lastChar].name} de votre panier \nConfirmer ?`
     );
     if (userConfirm == true) {
@@ -112,9 +114,9 @@ var delOne = function () {
 };
 
 // Fonction supprimer l'article du panier
-var supCart = function () {
-  var lastChar = this.id.substr(this.id.length - 1);
-  var userConfirm = confirm(
+let supCart = function () {
+  let lastChar = this.id.substr(this.id.length - 1);
+  let userConfirm = confirm(
     `Vous êtes sur le point de supprimer ces articles de votre panier \nConfirmer ?`
   );
   if (userConfirm == true) {

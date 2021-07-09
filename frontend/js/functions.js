@@ -1,12 +1,23 @@
 const teddiesList = document.getElementById("teddiesList");
 const searchBar = document.getElementById("searchBar");
 const btn = document.getElementById("search-btn");
+
 let hpTeddies = [];
 
-btn.addEventListener("click", (e) => {
-  showDiv();
-});
+// ** FetchError **
+const refreshBtn = document.getElementById("refreshBtn");
 
+if (refreshBtn) {
+ refreshBtn.addEventListener("click", (e) => {
+   refreshPage();
+ });
+}
+
+ function refreshPage () {
+  window.location.href = "../index.html";
+}
+
+// ** SearchBar **
 searchBar.addEventListener("keyup", (e) => {
   const searchString = e.target.value.toLowerCase();
 
@@ -15,16 +26,6 @@ searchBar.addEventListener("keyup", (e) => {
   });
   displayTeddies(filteredTeddies);
 });
-
-const loadTeddies = async () => {
-  try {
-    const res = await fetch("http://localhost:3000/api/teddies");
-    hpTeddies = await res.json();
-    displayTeddies(hpTeddies);
-  } catch (err) {
-    console.log(err);
-  }
-};
 
 const displayTeddies = (teddies) => {
   const htmlString = teddies
@@ -40,10 +41,13 @@ const displayTeddies = (teddies) => {
   teddiesList.innerHTML = htmlString;
 };
 
+btn.addEventListener("click", (e) => {
+  showDiv();
+});
 
-// metre la partie onclick directement sur la fonction
+// show le résultat de searchBar
 function showDiv() {
-  var x = document.getElementById("showTeddie");
+  let x = document.getElementById("showTeddie");
   if (x.style.display === "block") {
     x.style.display = "none";
   } else {
@@ -51,6 +55,17 @@ function showDiv() {
     x.style.position = "absolute";
   }
 }
+
+// ** Show CartQty **
+const loadTeddies = async () => {
+  try {
+    const res = await fetch("http://localhost:3000/api/teddies");
+    hpTeddies = await res.json();
+    displayTeddies(hpTeddies);
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 // Cart Qty
 let cartItems = JSON.parse(localStorage.getItem("shopCart"));
