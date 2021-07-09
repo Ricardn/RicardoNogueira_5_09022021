@@ -52,7 +52,6 @@ function productContent(productObject) {
   }
 }
 
-
 // Fonction ajouter l'article dans le panier
 function addToCart(productObject) {
   // Déclenchement au clic sur le boutton
