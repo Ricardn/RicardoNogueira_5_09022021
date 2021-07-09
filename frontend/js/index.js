@@ -8,19 +8,16 @@ async function main() {
   productContent(productList);
 }
 
-// Fonction getProductList: récupération des données sur le serveur
-
 function getProductList() {
-  return fetch(serverUrl).then(function (response) {
-    return response
-      .json()
-      .then(function (products) {
-        return products;
-      })
-      .catch(function (error) {
-        alert(error);
-      });
-  });
+ return fetch(serverUrl)
+   .then(function (response) {
+     return response.json().then(function (products) {
+       return products;
+     });
+   })
+   .catch(function (error) {
+     window.location.assign("../frontend/error.html");
+   });
 }
 
 // Récupére les informations de productList et les implante au bon endroit
