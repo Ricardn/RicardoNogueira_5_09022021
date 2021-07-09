@@ -529,6 +529,14 @@ iframe {
     justify-content: space-between;
   }
 }
+.sadTeddy {
+  display: block;
+  text-align: center;
+}
+.sadTeddy img {
+  width: 300px;
+}
+
 * {
   margin: 0;
   padding: 0;
