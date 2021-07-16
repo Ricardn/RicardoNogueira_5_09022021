@@ -21,6 +21,7 @@ function getProductList() {
 }
 
 // Récupére les informations de productList et les implante au bon endroit
+// "beforeend = à l'intérieur de son élement"
 function productContent(productList) {
   for (i = 0; i < productList.length; i++) {
     document.querySelector("#container-product-row").insertAdjacentHTML(
